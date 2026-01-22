@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Serenity Yoga - Achieve balance in mind, body, and soul through yoga and meditation">
+    <title>Serenity Yoga - Mind, Body & Soul Balance</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="font-body bg-slate-50 text-slate-800">
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-slate-200 py-4 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <svg class="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-12c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z" />
+                    </svg>
+                    <span class="font-heading text-2xl font-bold text-slate-800">SERENITY YOGA</span>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#classes" class="nav-link">Reviews</a>
+                    <a href="#testimonials" class="nav-link">Classes</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Mobile menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pt-4 border-t">
+                <div class="flex flex-col space-y-3">
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#classes" class="nav-link">Reviews</a>
+                    <a href="#testimonials" class="nav-link">Classes</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Curved Ribbon -->
+    <section
+        class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-purple-50 to-blue-50">
+        <div class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div>
+                <div class="inline-block mb-4 px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">
+                    Mind-Body-Soul Balance
+                </div>
+                <h1 class="font-heading text-5xl md:text-6xl font-bold mb-6 leading-tight text-slate-900">
+                    Achieve balance in<br />
+                    mind, body, and soul.
+                </h1>
+                <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                    Lorem ipsum dolor sit amet consectetur. Semper tempor ut proin ut molestie lobortis non.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <button class="btn-primary">Start Today</button>
+                    <button class="btn-secondary">View Classes</button>
+                </div>
+            </div>
+
+            <!-- Hero Image with Curved Ribbon Overlay -->
+            <div class="relative">
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                    <img src="assets/hero.png" alt="Woman in peaceful yoga pose" class="w-full h-auto object-cover">
+
+                    <!-- Curved Purple Ribbon SVG Overlay -->
+                    <div class="absolute inset-0 pointer-events-none">
+                        <svg class="absolute top-0 right-0 w-full h-full" viewBox="0 0 500 500"
+                            preserveAspectRatio="none">
+                            <path d="M 450 50 Q 400 150 420 250 Q 440 350 380 450" fill="none" stroke="#9E7BB5"
+                                stroke-width="80" opacity="0.3" />
+                        </svg>
+
+                        <!-- Text on curved path -->
+                        <div class="absolute top-1/4 right-0 transform rotate-12">
+                            <div class="bg-purple-600 text-white px-6 py-3 rounded-full text-sm font-medium shadow-lg">
+                                FOLLOW YOUR BLISS
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Decorative shapes -->
+        <div class="absolute top-20 left-10 w-32 h-32 bg-purple-200 rounded-full opacity-20 blur-3xl"></div>
+        <div class="absolute bottom-20 right-10 w-40 h-40 bg-blue-200 rounded-full opacity-20 blur-3xl"></div>
+    </section>
+
+    <!-- Class Types Section -->
+    <section id="classes" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-4xl md:text-5xl font-bold mb-4">Our Classes</h2>
+                <p class="text-xl text-slate-600">Find the perfect class for your wellness journey</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Flexibility Card -->
+                <div
+                    class="class-card bg-gradient-to-br from-blue-100 to-blue-50 rounded-3xl p-8 relative overflow-hidden cursor-pointer">
+                    <div class="relative z-10">
+                        <div class="mb-6">
+                            <img src="assets/flexibility.png" alt="Flexibility yoga"
+                                class="w-full h-64 object-cover rounded-2xl shadow-lg">
+                        </div>
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-heading text-2xl font-bold text-slate-900">Improved<br />Flexibility</h3>
+                            <button
+                                class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-blue-600 hover:text-white transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
+                        <p class="text-slate-600 text-sm">Enhance your range of motion with gentle stretching and flow
+                            sequences</p>
+                        <div class="mt-4">
+                            <button
+                                class="text-sm bg-white px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow">View
+                                video</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stress Reduction Card -->
+                <div
+                    class="class-card bg-gradient-to-br from-amber-100 to-orange-50 rounded-3xl p-8 relative overflow-hidden cursor-pointer">
+                    <div class="relative z-10">
+                        <div class="mb-6">
+                            <img src="assets/stress.png" alt="Stress reduction meditation"
+                                class="w-full h-64 object-cover rounded-2xl shadow-lg">
+                        </div>
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-heading text-2xl font-bold text-slate-900">Stress<br />Reduction</h3>
+                            <button
+                                class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-amber-600 hover:text-white transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
+                        <p class="text-slate-600 text-sm">Find inner peace through mindful breathing and meditation
+                            techniques</p>
+                        <div class="mt-4">
+                            <button
+                                class="text-sm bg-white px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow">View
+                                video</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yoga Class Card -->
+                <div
+                    class="class-card bg-gradient-to-br from-green-100 to-emerald-50 rounded-3xl p-8 relative overflow-hidden cursor-pointer">
+                    <div class="relative z-10">
+                        <div class="mb-6">
+                            <img src="assets/class.png" alt="Group yoga class"
+                                class="w-full h-64 object-cover rounded-2xl shadow-lg">
+                        </div>
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-heading text-2xl font-bold text-slate-900">Sign Up for a Yoga<br />Class
+                                Today</h3>
+                            <button
+                                class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-green-600 hover:text-white transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
+                        <p class="text-slate-600 text-sm">Join our welcoming community and start your transformation
+                            journey</p>
+                        <div class="mt-4">
+                            <button
+                                class="text-sm bg-white px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-shadow">Join
+                                now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workshop/Events Section -->
+    <section class="py-24 px-6 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-slate-800 rounded-3xl overflow-hidden shadow-xl">
+                    <img src="assets/workshop.png" alt="Outdoor yoga workshop" class="w-full h-64 object-cover">
+                    <div class="p-8">
+                        <h3 class="font-heading text-2xl font-bold mb-3">Workshop Events</h3>
+                        <p class="text-slate-300 mb-4">Join our outdoor retreats and special wellness workshops</p>
+                        <button class="btn-white">Learn More</button>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800 rounded-3xl overflow-hidden shadow-xl">
+                    <img src="assets/class.png" alt="Wellness program" class="w-full h-64 object-cover">
+                    <div class="p-8">
+                        <h3 class="font-heading text-2xl font-bold mb-3">Wellness Programs</h3>
+                        <p class="text-slate-300 mb-4">Comprehensive programs for holistic health transformation</p>
+                        <button class="btn-white">Discover</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 px-6 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl text-slate-600">Everything you need to know about our yoga classes</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="faq-item bg-slate-50 rounded-2xl p-6 cursor-pointer hover:bg-slate-100 transition-colors">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-semibold text-lg">What should I bring to a yoga class?</h3>
+                        <svg class="w-6 h-6 faq-icon transition-transform" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+                    <div class="faq-answer hidden mt-4 text-slate-600">
+                        Bring a yoga mat, comfortable clothing, water bottle, and a towel. We provide all other
+                        necessary equipment.
+                    </div>
+                </div>
+
+                <div class="faq-item bg-slate-50 rounded-2xl p-6 cursor-pointer hover:bg-slate-100 transition-colors">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-semibold text-lg">Do I need prior yoga experience to join?</h3>
+                        <svg class="w-6 h-6 faq-icon transition-transform" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+                    <div class="faq-answer hidden mt-4 text-slate-600">
+                        No prior experience needed! We offer beginner-friendly classes and our instructors provide
+                        modifications for all levels.
+                    </div>
+                </div>
+
+                <div class="faq-item bg-slate-50 rounded-2xl p-6 cursor-pointer hover:bg-slate-100 transition-colors">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-semibold text-lg">What are the class sizes?</h3>
+                        <svg class="w-6 h-6 faq-icon transition-transform" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+                    <div class="faq-answer hidden mt-4 text-slate-600">
+                        We keep our classes intimate with a maximum of 15 students to ensure personalized attention from
+                        instructors.
+                    </div>
+                </div>
+
+                <div class="faq-item bg-slate-50 rounded-2xl p-6 cursor-pointer hover:bg-slate-100 transition-colors">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-semibold text-lg">How do I sign up for a class?</h3>
+                        <svg class="w-6 h-6 faq-icon transition-transform" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+                    <div class="faq-answer hidden mt-4 text-slate-600">
+                        You can book classes through our website, mobile app, or by calling our studio directly.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section with Curved Ribbon -->
+    <section id="testimonials" class="py-24 px-6 bg-gradient-to-br from-orange-50 to-amber-50 relative overflow-hidden">
+        <!-- Curved Ribbon Decoration -->
+        <div class="absolute inset-0 pointer-events-none opacity-30">
+            <svg class="w-full h-full" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                <path d="M 0 400 Q 250 300 500 400 Q 750 500 1000 400" fill="none" stroke="#F5C6A5"
+                    stroke-width="100" />
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-4xl md:text-5xl font-bold mb-4">Student Testimonials</h2>
+                <p class="text-xl text-slate-600">See how our community have transformed their lives through yoga</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-3xl p-8 shadow-lg">
+                    <div class="flex justify-center mb-6">
+                        <img src="assets/student1.png" alt="Student"
+                            class="w-24 h-24 rounded-full object-cover border-4 border-purple-200">
+                    </div>
+                    <p class="text-slate-600 mb-6 italic">"Coming to this yoga studio has been life-changing. The
+                        instructors are supportive and the community is so welcoming!"</p>
+                    <div class="text-center">
+                        <p class="font-semibold text-slate-900">Emily R.</p>
+                        <p class="text-sm text-slate-500">Member since 2023</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 shadow-lg">
+                    <div class="flex justify-center mb-6">
+                        <div
+                            class="w-24 h-24 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white text-3xl font-bold">
+                            S
+                        </div>
+                    </div>
+                    <p class="text-slate-600 mb-6 italic">"I've improved my flexibility and reduced my stress
+                        significantly. The personalized attention makes all the difference."</p>
+                    <div class="text-center">
+                        <p class="font-semibold text-slate-900">Sarah M.</p>
+                        <p class="text-sm text-slate-500">Member since 2022</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 shadow-lg">
+                    <div class="flex justify-center mb-6">
+                        <div
+                            class="w-24 h-24 rounded-full bg-gradient-to-br from-blue-400 to-cyan-400 flex items-center justify-center text-white text-3xl font-bold">
+                            J
+                        </div>
+                    </div>
+                    <p class="text-slate-600 mb-6 italic">"The outdoor workshops are amazing! A perfect blend of nature,
+                        movement, and mindfulness."</p>
+                    <div class="text-center">
+                        <p class="font-semibold text-slate-900">James L.</p>
+                        <p class="text-sm text-slate-500">Member since 2024</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact/CTA Section -->
+    <section id="contact" class="py-24 px-6 bg-gradient-to-br from-purple-600 to-blue-600 text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="font-heading text-4xl md:text-5xl font-bold mb-6">Ready to Begin Your Journey?</h2>
+            <p class="text-xl text-purple-100 mb-10">Join our community and discover the transformative power of yoga
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="btn-white-lg">Start Free Trial</button>
+                <button class="btn-outline-white-lg">Book a Class</button>
+            </div>
+            <p class="text-sm text-purple-200 mt-8">No credit card required • Cancel anytime</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 py-16 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg class="w-8 h-8 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-12c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z" />
+                        </svg>
+                        <span class="font-heading text-xl font-bold text-white">SERENITY YOGA</span>
+                    </div>
+                    <p class="text-sm">Transform your life through mindful yoga practice</p>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-white mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-purple-400 transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-purple-400 transition-colors">Classes</a></li>
+                        <li><a href="#" class="hover:text-purple-400 transition-colors">Schedule</a></li>
+                        <li><a href="#" class="hover:text-purple-400 transition-colors">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-white mb-4">Contact</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>123 Zen Street</li>
+                        <li>Ho Chi Minh City</li>
+                        <li>hello@serenityyoga.com</li>
+                        <li>+84 123 456 789</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-white mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-purple-400 transition-colors" aria-label="Facebook">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="hover:text-purple-400 transition-colors" aria-label="Instagram">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z" />
+                                <path
+                                    d="M12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 text-center text-sm">
+                <p>&copy; 2026 Serenity Yoga. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
