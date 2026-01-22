@@ -285,6 +285,7 @@ function initAdvancedSectionAnimations() {
                 toggleActions: 'play none none none'
             }
         });
+        console.log(tl);
 
         if (label) tl.from(label, { opacity: 0, x: -20, duration: 0.6, ease: 'power3.out' });
         if (title) tl.from(title, { opacity: 0, y: 30, rotationX: -10, duration: 0.8, ease: 'back.out(1.5)' }, '-=0.3');
@@ -346,14 +347,14 @@ function initAdvancedCTAAnimation() {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: ctaContent,
-                start: 'top 85%',
-                toggleActions: 'play none none none'
+                start: 'top 60%',
+                toggleActions: 'play none none none',
             }
         });
 
-        if (title) tl.from(title, { opacity: 0, y: 50, scale: 0.9, duration: 1, ease: 'back.out(1.5)' });
-        if (text) tl.from(text, { opacity: 0, y: 30, duration: 0.8, ease: 'power3.out' }, '-=0.6');
-        if (btn) tl.from(btn, { opacity: 0, y: 20, scale: 0.9, duration: 0.6, ease: 'back.out(2)' }, '-=0.4');
+        if (title) tl.from(title, { opacity: 0, y: 50, scale: 0.9, duration: 0.6, ease: 'back.out(1.5)' }).to(title, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: 'back.out(1.5)' });
+        if (text) tl.from(text, { opacity: 0, y: 30, duration: 0.8, ease: 'power3.out' }, '-=0.3').to(text, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.3');
+        if (btn) tl.from(btn, { opacity: 0, y: 20, scale: 0.9, duration: 0.6, ease: 'back.out(2)' }, '-=0.4').to(btn, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: 'back.out(2)' }, '-=0.4');
     }
 }
 
@@ -377,6 +378,35 @@ function initSmoothScroll() {
     });
 }
 
+// ===== SCROLL HINT - GSAP SMOOTH ANIMATION =====
+function initScrollHintAnimation() {
+    const scrollHint = document.querySelector('.scroll-hint');
+    const scrollArrow = document.querySelector('.scroll-arrow');
+
+    if (scrollHint) {
+        // Smooth float animation
+        gsap.to(scrollHint, {
+            y: -12,
+            duration: 3,
+            ease: 'sine.inOut',
+            repeat: -1,
+            yoyo: true
+        });
+    }
+
+    if (scrollArrow) {
+        // Smooth fade + move
+        gsap.to(scrollArrow, {
+            opacity: 0.3,
+            y: 8,
+            duration: 2,
+            ease: 'sine.inOut',
+            repeat: -1,
+            yoyo: true
+        });
+    }
+}
+
 // ===== LOADING ANIMATION - SPRING ENTRANCE =====
 function initLoadingAnimation() {
     const heroElements = gsap.utils.toArray('.fade-in-up');
@@ -394,10 +424,266 @@ function initLoadingAnimation() {
     });
 }
 
+// ===== SPLIT TEXT REVEAL ANIMATION =====
+function initSplitTextReveal() {
+    const titles = document.querySelectorAll('.section-title, .card-title');
+
+    titles.forEach(title => {
+        const text = title.textContent;
+        const words = text.split(' ');
+        title.innerHTML = '';
+
+        words.forEach((word, wordIndex) => {
+            const wordSpan = document.createElement('span');
+            wordSpan.style.cssText = 'display:inline-block;overflow:hidden;';
+
+            word.split('').forEach(char => {
+                const charSpan = document.createElement('span');
+                charSpan.textContent = char;
+                charSpan.style.display = 'inline-block';
+                wordSpan.appendChild(charSpan);
+            });
+
+            title.appendChild(wordSpan);
+            if (wordIndex < words.length - 1) title.appendChild(document.createTextNode(' '));
+        });
+
+        const chars = title.querySelectorAll('span span');
+        gsap.set(chars, { y: 100, opacity: 0 });
+
+        ScrollTrigger.create({
+            trigger: title,
+            start: 'top 90%',
+            once: true,
+            onEnter: () => {
+                gsap.to(chars, {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    stagger: 0.02,
+                    ease: 'back.out(1.5)'
+                });
+            }
+        });
+    });
+}
+
+// ===== FLOATING GEOMETRIC SHAPES =====
+function initFloatingShapes() {
+    const container = document.createElement('div');
+    container.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:hidden;';
+    document.body.appendChild(container);
+
+    for (let i = 0; i < 6; i++) {
+        const shape = document.createElement('div');
+        const size = 60 + Math.random() * 80;
+
+        shape.style.cssText = `
+            position:absolute;
+            width:${size}px;
+            height:${size}px;
+            border:2px solid rgba(244,162,89,0.12);
+            border-radius:${Math.random() > 0.5 ? '50%' : '0'};
+            left:${Math.random() * 100}%;
+            top:${Math.random() * 100}%;
+        `;
+
+        container.appendChild(shape);
+
+        gsap.to(shape, {
+            y: -150 - Math.random() * 100,
+            x: (Math.random() - 0.5) * 80,
+            rotation: 360,
+            duration: 20 + Math.random() * 15,
+            repeat: -1,
+            ease: 'none',
+            yoyo: true
+        });
+
+        gsap.to(shape, {
+            y: -250 * (i / 6),
+            scrollTrigger: {
+                trigger: 'body',
+                start: 'top top',
+                end: 'bottom bottom',
+                scrub: 1 + (i / 6)
+            }
+        });
+    }
+}
+
+// ===== LIQUID CURSOR TRAIL =====
+function initLiquidTrail() {
+    if (window.innerWidth < 768) return;
+
+    const trail = [];
+    const trailLength = 15;
+
+    for (let i = 0; i < trailLength; i++) {
+        const dot = document.createElement('div');
+        dot.style.cssText = `
+            position:fixed;
+            width:${7 - i * 0.3}px;
+            height:${7 - i * 0.3}px;
+            background:rgba(244,162,89,${0.4 - i * 0.025});
+            border-radius:50%;
+            pointer-events:none;
+            z-index:99998;
+        `;
+        document.body.appendChild(dot);
+        trail.push({ el: dot, x: 0, y: 0 });
+    }
+
+    let mouseX = 0, mouseY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    function animate() {
+        trail[0].x = mouseX;
+        trail[0].y = mouseY;
+
+        for (let i = 0; i < trailLength; i++) {
+            if (i > 0) {
+                trail[i].x += (trail[i - 1].x - trail[i].x) * 0.25;
+                trail[i].y += (trail[i - 1].y - trail[i].y) * 0.25;
+            }
+            trail[i].el.style.transform = `translate(${trail[i].x}px, ${trail[i].y}px)`;
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+}
+
+// ===== BUTTON RIPPLE EFFECT =====
+function initButtonRipples() {
+    document.querySelectorAll('.btn').forEach(btn => {
+        btn.style.cssText += 'position:relative;overflow:hidden;';
+
+        btn.addEventListener('click', (e) => {
+            const ripple = document.createElement('span');
+            const rect = btn.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+
+            ripple.style.cssText = `
+                position:absolute;
+                width:${size}px;
+                height:${size}px;
+                left:${x}px;
+                top:${y}px;
+                background:rgba(255,255,255,0.4);
+                border-radius:50%;
+                transform:scale(0);
+                pointer-events:none;
+            `;
+
+            btn.appendChild(ripple);
+
+            gsap.to(ripple, {
+                scale: 2,
+                opacity: 0,
+                duration: 0.6,
+                ease: 'power2.out',
+                onComplete: () => ripple.remove()
+            });
+        });
+    });
+}
+
+// ===== IMAGE REVEAL MASK =====
+function initImageRevealMask() {
+    document.querySelectorAll('.card-image-wrapper').forEach(wrapper => {
+        const mask = document.createElement('div');
+        mask.style.cssText = `
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:#F4A259;
+            z-index:2;
+            transform-origin:left;
+        `;
+        wrapper.style.position = 'relative';
+        wrapper.appendChild(mask);
+
+        ScrollTrigger.create({
+            trigger: wrapper,
+            start: 'top 75%',
+            once: true,
+            onEnter: () => {
+                gsap.to(mask, {
+                    scaleX: 0,
+                    duration: 1.2,
+                    ease: 'expo.inOut'
+                });
+            }
+        });
+    });
+}
+
+// ===== SCROLL PROGRESS INDICATOR =====
+function initScrollProgress() {
+    const bar = document.createElement('div');
+    bar.style.cssText = `
+        position:fixed;
+        top:0;
+        left:0;
+        width:0;
+        height:3px;
+        background:linear-gradient(90deg,#F4A259,#D66853);
+        z-index:100000;
+        transition:width 0.1s ease;
+    `;
+    document.body.appendChild(bar);
+
+    window.addEventListener('scroll', () => {
+        const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        bar.style.width = scrolled + '%';
+    });
+}
+
+// ===== UNIVERSAL PARALLAX =====
+function initUniversalParallax() {
+    const sections = document.querySelectorAll('section');
+
+    sections.forEach((section, i) => {
+        gsap.to(section, {
+            y: -40 * (i % 3),
+            scrollTrigger: {
+                trigger: section,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 0.3
+            }
+        });
+    });
+}
+
+// ===== MICRO-INTERACTIONS =====
+function initMicroInteractions() {
+    document.querySelectorAll('a, .card-link').forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            gsap.to(link, { scale: 1.05, duration: 0.3, ease: 'back.out(2)' });
+        });
+
+        link.addEventListener('mouseleave', () => {
+            gsap.to(link, { scale: 1, duration: 0.3, ease: 'power2.out' });
+        });
+    });
+}
+
 // ===== INITIALIZE ALL =====
 function init() {
-    console.log('🌅 Sunset Journey - Advanced Loading...');
+    console.log('🌅 Sunset Journey - Ultimate Loading...');
 
+    // Original animations
     initMagneticCursor();
     initAdvancedHeroParallax();
     initAdvancedCardAnimations();
@@ -408,9 +694,21 @@ function init() {
     initMagneticFeatures();
     initAdvancedCTAAnimation();
     initSmoothScroll();
+    initScrollHintAnimation();
     initLoadingAnimation();
 
-    console.log('✨ Sunset Journey - 2026 Animations Ready!');
+    // NEW: Advanced effects
+    initSplitTextReveal();
+    initFloatingShapes();
+    initLiquidTrail();
+    initButtonRipples();
+    initImageRevealMask();
+    initScrollProgress();
+    initUniversalParallax();
+    initMicroInteractions();
+
+    console.log('✨ Sunset Journey - 20+ Animations LOADED!');
+    console.log('🎬 Systems Active: Magnetic Cursor, Split Text, Liquid Trail, Ripples, Masks, Progress Bar, Universal Parallax');
 }
 
 // Run on DOM ready

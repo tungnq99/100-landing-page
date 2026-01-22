@@ -215,13 +215,12 @@ p {
     position: absolute;
     bottom: var(--space-xl);
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
     text-align: center;
     color: white;
     font-family: var(--font-sans);
     font-size: 14px;
     z-index: 10;
-    animation: float 3s ease-in-out infinite;
 }
 
 .scroll-arrow {
@@ -229,32 +228,9 @@ p {
     height: 40px;
     background: linear-gradient(to bottom, white, transparent);
     margin: var(--space-xs) auto 0;
-    animation: scroll-down 2s ease-in-out infinite;
 }
 
-@keyframes float {
 
-    0%,
-    100% {
-        transform: translateX(-50%) translateY(0);
-    }
-
-    50% {
-        transform: translateX(-50%) translateY(-10px);
-    }
-}
-
-@keyframes scroll-down {
-
-    0%,
-    100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.3;
-    }
-}
 
 /* Fade-in animations */
 .fade-in-up {
