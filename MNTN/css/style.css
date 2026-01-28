@@ -1,0 +1,504 @@
+:root {
+    --bg-dark: #0B1D26;
+    --text-white: #FFFFFF;
+    --accent-gold: #FBD784;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Montserrat', sans-serif;
+
+    --container-width: 1200px;
+    --section-spacing: 15rem;
+    /* Large vertical breathing room */
+}
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: var(--font-sans);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Typography Helpers */
+h1,
+h2,
+h3 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+}
+
+h1.main-title {
+    font-size: 4rem;
+    /* Huge Hero Title */
+    line-height: 1.1;
+    text-transform: capitalize;
+    margin: 1.5rem 0;
+}
+
+h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+}
+
+p {
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.tagline {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* Left align */
+    gap: 1.5rem;
+    color: var(--accent-gold);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 1rem;
+}
+
+.tagline .line {
+    width: 72px;
+    height: 2px;
+    background-color: var(--accent-gold);
+}
+
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--accent-gold);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 2rem;
+}
+
+.read-more i {
+    transition: transform 0.3s ease;
+}
+
+.read-more:hover i {
+    transform: translateX(5px);
+}
+
+/* Layout Utilities */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    transition: 0.3s ease;
+}
+
+.navbar .logo {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.account {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Sidebar Components */
+.social-sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    left: 4rem;
+    top: 50%;
+    transform: translateY(-50%);
+    gap: 2rem;
+    z-index: 50;
+}
+
+.social-text {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    writing-mode: vertical-rl;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    writing-mode: horizontal-tb;
+    /* Reset for icons */
+    flex-direction: column;
+}
+
+.page-progress {
+    position: fixed;
+    right: 4rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2rem;
+    z-index: 50;
+}
+
+.progress-step {
+    font-weight: 700;
+    color: var(--text-white);
+    text-align: right;
+    width: 100%;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.progress-step.active {
+    opacity: 1;
+}
+
+.progress-bar {
+    width: 3px;
+    height: 15rem;
+    /* ~240px */
+    background: rgba(255, 255, 255, 0.2);
+    position: absolute;
+    right: -2rem;
+    /* Move line slightly right of numbers */
+    top: 0;
+    border-radius: 2px;
+}
+
+.progress-indicator {
+    width: 100%;
+    height: 25%;
+    background: var(--text-white);
+    position: absolute;
+    top: 0;
+    transition: top 0.3s ease;
+}
+
+/* HERO SECTION - CRITICAL "MNTN" STYLE */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 150vh;
+    /* User Observation: Approx 150vh, continuous background */
+    display: flex;
+    justify-content: center;
+    padding-top: 15vh;
+    /* Push content down slightly */
+    z-index: 1;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.parallax-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    /* Pin to top (Sky) so text is always readable, allow bottom to extend */
+}
+
+/* THE MNTN GRADIENT MAGIC */
+.hero-vignette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Dark Vignette at corners, especially top to make navbar pop */
+    background: radial-gradient(circle at 50% 50%, rgba(11, 29, 38, 0) 0%, rgba(11, 29, 38, 0.4) 80%, rgba(11, 29, 38, 0.8) 100%);
+    pointer-events: none;
+}
+
+.hero-gradient-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    /* Fade starts from bottom 60% */
+    background: linear-gradient(to top, var(--bg-dark) 0%, rgba(11, 29, 38, 0.7) 40%, rgba(11, 29, 38, 0) 100%);
+    pointer-events: none;
+}
+
+.hero-content {
+    /* Block Centered, Text Left */
+    text-align: left;
+    width: fit-content;
+    /* Shrink to content width */
+    margin: 0 auto;
+    /* Center the block horizontally */
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Align children to the left */
+}
+
+.scroll-down {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* Reset to start */
+    gap: 1rem;
+    font-weight: 600;
+    margin-top: 3rem;
+    cursor: pointer;
+}
+
+.scroll-down i {
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+/* CONTENT SECTIONS - ZIG ZAG LAYOUT */
+.content-wrapper {
+    position: relative;
+    z-index: 2;
+    margin-top: -30vh;
+    /* Blends content deep into the hero background */
+    padding-bottom: 10rem;
+    background: linear-gradient(to bottom, transparent 0%, var(--bg-dark) 15%);
+    /* Smooth blend if gap appears */
+}
+
+.content-section {
+    padding: var(--section-spacing) 0;
+    position: relative;
+
+}
+
+.grid-zig-zag {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    /* Text wider than Image typically or vary */
+    align-items: center;
+    gap: 8rem;
+}
+
+.grid-zig-zag img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    /* No border-radius in MNTN design? Keep sharp or slight? Let's keep sharp for now or minimal */
+}
+
+/* Reverse Logic */
+.content-section.reverse .grid-zig-zag {
+    /* Swap visual order but keep HTML semantic if needed, or just grid-template-areas */
+    direction: ltr;
+    grid-template-columns: 0.8fr 1fr;
+    /* Quick hack for swapping columns or use order */
+    /* Better: grid explicit placement */
+}
+
+.content-section.reverse .grid-zig-zag>.text-block {
+    padding-left: 0;
+    /* Reset content direction */
+}
+
+
+/* Content Typography & Number */
+.text-block {
+    position: relative;
+    padding-left: 5rem;
+    /* Space for the number */
+}
+
+.bg-number {
+    position: absolute;
+    top: -6rem;
+    left: 0;
+    font-size: 15rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.1);
+    line-height: 1;
+    z-index: -1;
+    font-family: var(--font-serif);
+}
+
+/* Footer */
+.footer {
+    padding: 5rem 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-brand .logo {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-brand p {
+    max-width: 400px;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.copyright {
+    margin-top: 3rem;
+    opacity: 0.4;
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 6rem;
+}
+
+.link-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.link-column h4 {
+    color: var(--accent-gold);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.link-column a {
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.link-column a:hover {
+    opacity: 1;
+    color: var(--accent-gold);
+}
+
+/* 
+   Mobile Responsive : 
+   We should implement a basic stack for mobile 
+*/
+@media (max-width: 1024px) {
+    h1.main-title {
+        font-size: 4rem;
+    }
+
+    .hero {
+        height: 110vh;
+    }
+
+    .content-wrapper {
+        margin-top: -10vh;
+    }
+
+    .navbar {
+        padding: 2rem;
+    }
+
+    .social-sidebar,
+    .page-progress {
+        display: none;
+    }
+
+    /* Hide on tablet/mobile usually */
+}
+
+@media (max-width: 768px) {
+    .grid-zig-zag {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .content-section.reverse .grid-zig-zag {
+        direction: ltr;
+    }
+
+    .text-block {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .bg-number {
+        left: 50%;
+        transform: translateX(-50%);
+        top: -4rem;
+    }
+
+    .tagline {
+        justify-content: center;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .tagline {
+        margin: 0 auto;
+    }
+}
