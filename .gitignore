@@ -1,6 +1,8 @@
 .agent
+.agents
 .env
 .shared
 */node_modules
 */.next
 .vscode
+*design_system.json
