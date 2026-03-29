@@ -29,8 +29,8 @@ export default function Hero() {
                                 transition={{ duration: 0.8, ease: "easeOut" }}
                                 className="text-5xl md:text-8xl font-heading font-bold text-neutral-200 tracking-tighter mb-6"
                             >
-                                Creating Digital <br />
-                                <span className="text-neutral-500">Experiences</span>
+                                Frontend <br />
+                                <span className="text-neutral-500">Developer</span>
                             </motion.h1>
 
                             <motion.p
@@ -39,7 +39,7 @@ export default function Hero() {
                                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                                 className="text-lg md:text-xl text-neutral-400 max-w-lg mx-auto mb-10"
                             >
-                                Immersive web design that tells a story.
+                                3+ years building dashboards, trading platforms & data-rich web apps with React / Next.js.
                             </motion.p>
 
                             <motion.div

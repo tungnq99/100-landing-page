@@ -3,6 +3,7 @@ import VelocityScroll from "@/components/VelocityScroll";
 import WorkGrid from "@/components/WorkGrid";
 import HorizontalScroll from "@/components/HorizontalScroll";
 import Experience from "@/components/Experience";
+import Skills from "@/components/Skills";
 
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
@@ -18,6 +19,7 @@ export default function Home() {
         <VelocityScroll />
         <WorkGrid />
         <HorizontalScroll />
+        <Skills />
         <Experience />
         <ProfessionalConnect />
         <Footer />

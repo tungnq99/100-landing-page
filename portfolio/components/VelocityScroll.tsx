@@ -73,8 +73,8 @@ function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
 export default function VelocityScroll() {
     return (
         <section className="py-20 bg-neutral-950 overflow-hidden relative z-10">
-            <ParallaxText baseVelocity={-2}>Creative Developer • Designer • Storyteller •</ParallaxText>
-            <ParallaxText baseVelocity={2}>Motion • User Experience • Interface •</ParallaxText>
+            <ParallaxText baseVelocity={-2}>React Developer • Next.js • TypeScript • Zustand • RTK Query •</ParallaxText>
+            <ParallaxText baseVelocity={2}>Dashboard • Trading Platform • Data Visualization • REST API •</ParallaxText>
         </section>
     );
 }
